@@ -11,8 +11,6 @@ const Main = () => {
             <PostContainer />
             <Button>More Posts</Button>
         </StyledMain>
-
-
     );
 }
 

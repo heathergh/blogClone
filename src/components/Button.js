@@ -13,5 +13,4 @@ const StyledButton = styled.button`
     left: 50%;
 `
 
-
 export default Button;
