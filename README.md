@@ -1,42 +1,20 @@
-# Fintros Code Challenge
+# Blog Clone
 
-A Please use the JSON placeholder PHOTOS API to load photos as quasi articles - https://jsonplaceholder.typicode.com/
-B) Use the photo title/image from the JSON placeholder API
-C) Load 30 articles. When the user scrolls down (past "More Post") please auto-load and display another 30 posts to the user; 
+A responsive SPA blog clone made with ReactJS, JSON Placeholder API, Styled Components and axios. Loads mock articles when bottom of page is reached, and user can also search for photos by id, which will display the image.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+- [ ]  Make sure you have NPM installed and NodeJS v12 or above.
+- [ ]  Clone this repo.
+- [ ]  Move to the appropriate directory: `cd blog-clone`.
+- [ ]  Run `npm install` to install dependencies. 
+- [ ]  Run `npm start ` to see the app at `http://localhost:3000`.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+[NodeJS](https://nodejs.org/en/download/)
 
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+[NPM](https://www.npmjs.com/package/download)
 
 ## Built With
 
@@ -44,28 +22,3 @@ Add additional notes about how to deploy this on a live system
 * [ReactJS](https://reactjs.org/) - The UI library used
 * [NPM](https://www.npmjs.com/) - Package Management
 * [Styled Components](https://www.styled-components.com/) - Used to style UI interface
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
