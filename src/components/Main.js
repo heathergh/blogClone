@@ -5,7 +5,6 @@ import SearchBar from './SearchBar';
 import PostContainer from './PostContainer';
 import ParagraphText from './ParagraphText';
 
-
 const StyledMain = styled.main`
     background: #f2efeb;
     height: 100%;

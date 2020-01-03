@@ -20,5 +20,4 @@ const ParagraphText = (props) => {
     )
 }
 
-
 export default ParagraphText;

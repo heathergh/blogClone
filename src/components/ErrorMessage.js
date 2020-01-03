@@ -12,7 +12,6 @@ const StyledErrorMessage = styled.div`
     margin: 0 auto 20px;
     color: #9f3a38;
     text-align: center;
-    margin: 0;
 `
 
 const ErrorMessage = ({children}) => {

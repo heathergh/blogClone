@@ -120,7 +120,7 @@ const PostContainer = () => {
                                         <StyledImage src={`${post.url}`} alt="" />
                                     </StyledImageContainer>
                                     <StyledPostContainer>
-                                        <StyledHeading>#{post.id} {post.title}</StyledHeading>
+                                        <StyledHeading>{post.title}</StyledHeading>
                                     </StyledPostContainer>
                                 </StyledListItem>
                             )
