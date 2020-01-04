@@ -62,7 +62,7 @@ const StyledHeading = styled.h3`
     margin: 10px 0 20px;
 `
 
-const PostContainer = () => {
+const PostContainer = ({propState, setPropState}) => {
     const [pageCount, setPageCount] = useState(1);
     const [data, setData] = useState([]);
     const [loadMoreData, setLoadMoreData] = useState(true);
@@ -73,6 +73,7 @@ const PostContainer = () => {
         fetchData(pageCount);
     }, []);
 
+    // when load more data value changes, get next 30 results from API
     useEffect(() => {
         fetchData(pageCount);
     }, [loadMoreData]);
@@ -86,31 +87,40 @@ const PostContainer = () => {
     });
     
     const loadMorePosts = () => {
+        // if the size of viewport and pixels scrolled vertically are greater than or equal to the height of the document body, toggle the value of the loadMoreData state value so api is called for next 30 results
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            // if user is at the bottom of the page, change of loadMoreData so API is called again
             setLoadMoreData(!loadMoreData);
         }
     };
 
     const fetchData = (pageCount) => {
-        return axios({
+        axios({
             method: 'get',
             url: `https://jsonplaceholder.typicode.com/photos?_page=${pageCount}&_limit=30`,
-        })
-        .then(response => {
+        }).then(response => {
+            // if API call is successful, spread current data array and spread response data from current API call to keep previous API call results and add new response data
             setData([...data, ...response.data]);
+            // increase the page count by 1, so the next API call gets the next 30 results
             setPageCount(pageCount + 1);
-        })
-        .catch (
-            setErrorMessage('More posts are not available at this time. Please try again later.')
-        );
+            // set state in parent component if its value is false, so the "more posts" text is visible
+            if (!propState) {
+                setPropState(true);
+            }
+        }).catch(() => {
+            // if there are no API call results, show error message to user
+            if (data.length === 0) {
+                setErrorMessage('Posts are not available at this time. Please try again later.')
+            }
+        });
     };
 
-    if (errorMessage !== '') {
-        return <ErrorMessage>{errorMessage}</ErrorMessage>
-    } else {
-        return (
-            <>
+    return (
+        <>
+            {
+                errorMessage
+            ?
+                <ErrorMessage>{errorMessage}</ErrorMessage>
+            :
                 <StyledUnorderedList>
                     {
                         data.map(post => {
@@ -127,9 +137,9 @@ const PostContainer = () => {
                         })
                     }
                 </StyledUnorderedList>
-            </>
-        );
-    }
+            }
+        </>
+    );
 }
 
 export default PostContainer;

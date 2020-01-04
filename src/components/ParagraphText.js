@@ -4,19 +4,34 @@ import styled from 'styled-components';
 const StyledParagraph = styled.p`
     background: #ffb21a;
     border-radius: 5px;
+    bottom: 0;
     color: #fff;
     font-family: FuturaBT-Book,sans-serif;
     font-size: 20px;
     font-weight: 300;
-    margin: 0 auto;
+    left: 50%;
+    margin-left: -90px;
+    position: absolute;
     padding: 16px 20px 15px;
     text-align: center;
     width: 180px;
 `
 
+const StyledParagraphWrapper = styled.div`
+    background: linear-gradient(hsla(0,0%,100%,0), #f9f8f6);
+    height: 390px;
+    margin-top: -400px;
+    pointer-events: none;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+`
+
 const ParagraphText = (props) => {
     return (
-        <StyledParagraph>{props.children}</StyledParagraph>
+        <StyledParagraphWrapper>
+            <StyledParagraph>{props.children}</StyledParagraph>
+        </StyledParagraphWrapper>
     )
 }
 

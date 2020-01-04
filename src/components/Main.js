@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
 import SearchBar from './SearchBar';
@@ -6,22 +6,24 @@ import PostContainer from './PostContainer';
 import ParagraphText from './ParagraphText';
 
 const StyledMain = styled.main`
-    background: #f2efeb;
-    height: 100%;
-    margin: 0 auto;
+    background: #f9f8f6;
     min-height: 100vh;
+    margin: 0 auto;
     max-width: 1260px;
-    padding: 0 20px;
+    padding: 0 20px 120px;
 `
 
 const Main = () => {    
+    const [doPostsExist, setDoPostsExist] = useState(false);
+
     return (
         <>
             <Reset />
             <StyledMain>
                 <SearchBar />
-                <PostContainer /> 
-                <ParagraphText>More Posts</ParagraphText>
+                <PostContainer propState={doPostsExist} setPropState={setDoPostsExist} />
+                {/* if blog articles exist, show more post text */}
+                { doPostsExist ? <ParagraphText>More Posts</ParagraphText> : null }
             </StyledMain>
         </>
     );

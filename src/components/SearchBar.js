@@ -7,22 +7,24 @@ const StyledForm = styled.form`
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 0 0 20px 0;
+    padding: 35px 0 30px;
     &:focus, &:active {
-        outline: none;
         border: none;
+        outline: none;
     }
 `
 
 const StyledLabel = styled.label`
-    clip-path: inset(100%);
+    border: 0;
     clip: rect(00 0 0);
-    margin: -1px;border: 0;
+    clip-path: inset(100%);
+    height: 1px;
+    margin: -1px;
     position: absolute;
     padding: 0;
     overflow: hidden;
     white-space: nowrap;
-    width: 1px; height: 1px;
+    width: 1px;
 `
 
 const StyledInput = styled.input`
@@ -30,20 +32,19 @@ const StyledInput = styled.input`
     -moz-transition: all 300ms ease-in-out;
     -ms-transition: all 300ms ease-in-out;
     -o-transition: all 300ms ease-in-out;
-    outline: none;
-    padding: 20px;
-    margin: 20px 0;
     border: 1px solid ;
     border-radius: 8px;
-    height: 30px;
+    font-size: 20px;
+    height: 20px;
+    padding: 10px;
+    outline: none;
     width: 280px;
     &:focus {
-        box-shadow: 0 0 5px $focusColor;
-        border: 1px solid $focusColor;
+        border: 1px solid #2e86ab;
+        box-shadow: 0 0 5px #2e86ab;
     }
     &::placeholder {
-        color: $placeholderFontColor;
-        font-size: $mobileFontSize;
+        color: #363636;
     }
     @media (max-width: 625px) {
         width: 500px;
@@ -55,51 +56,65 @@ const StyledInput = styled.input`
 
 const StyledImage = styled.img`
     display: flex;
+    height: 50%;
     margin: 0 auto;
 `
 
 const Searchbar = () => {
-    const [photoId, setPhotoId] = useState(null);
+    const [photoId, setPhotoId] = useState('');
     const [photoUrl, setPhotoUrl] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    // clear input when there is a photo URL
     useEffect(() => {
         setPhotoId('');
     }, [photoUrl]);
 
-    const searchForImage = event => {
+    const getImageById = event => {
         event.preventDefault();
         
-        if (photoId === null || photoId === '') {
+        // remove trailing and leading whitespace from user input before using it in API call
+        const trimmedId = photoId.replace(/(^\s+|\s+$)/g,'');
+
+        // if the user did not enter an ID, show error message and remove current image
+        if (trimmedId === '') {
             setErrorMessage("Please fill in this field");
+            setPhotoUrl('');
         } else {
             axios({
                 method: 'get',
-                url: `https://jsonplaceholder.typicode.com/photos/${photoId}`,
+                url: `https://jsonplaceholder.typicode.com/photos/${trimmedId}`,
             }).then(response => {
+                // if API call is successful, set photo URL value
                 setPhotoUrl(response.data.url);
-                setErrorMessage('');
-            }).catch(error => {
+
+                // clear error message if it exists once API call is successful
+                if (errorMessage !== '') {
+                    setErrorMessage('');
+                }
+            }).catch(() => {
+                // if there are no results, show an error message to user
                 setErrorMessage('That photo is not available, please try searching for another photo.')
+                // if there are no results, remove the photo URL so no photo is displayed
+                setPhotoUrl('');
             });
         }
     }
     
+    // get user input from search bar input and set the photoId value with it
     const getUserInput = (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
 
-        if (event.target.value !== '') {
-            setPhotoId(event.target.value);
-        }
+        setPhotoId(event.target.value);
     }
 
     return (
         <>
-            <StyledForm onSubmit={searchForImage}>
+            <StyledForm onSubmit={getImageById}>
                 <StyledLabel htmlFor="search">What image do you want to search for?</StyledLabel>
                 <StyledInput id="search" value={photoId} onChange={getUserInput} placeholder="Search for an image by ID"/>
             </StyledForm>
-            { errorMessage !== '' ?  <ErrorMessage>{errorMessage}</ErrorMessage> : null }
+            { errorMessage ?  <ErrorMessage>{errorMessage}</ErrorMessage> : null }
             <StyledImage src={`${photoUrl}`} alt="" />
         </>
     );
