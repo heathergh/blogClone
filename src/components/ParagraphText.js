@@ -5,7 +5,7 @@ const StyledParagraph = styled.p`
     background: #ffb21a;
     border-radius: 5px;
     bottom: 0;
-    color: #fff;
+    color: #4c4c4c;
     font-family: FuturaBT-Book,sans-serif;
     font-size: 20px;
     font-weight: 300;

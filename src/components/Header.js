@@ -19,7 +19,7 @@ const StyledHeadingTwo = styled.h2`
     font-weight: 100;
     letter-spacing: 2px;
     line-height: 45px;
-    opacity: .4;
+    opacity: .5;
     text-transform: uppercase;
     margin: 15px 0 0;
 `
