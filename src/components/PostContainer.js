@@ -53,7 +53,6 @@ const StyledImage = styled.img`
 `
 const StyledHeading = styled.h3`
     font-family: FuturaBT-Heavy,sans-serif;
-    font-size: 25px;
     font-weight: 100;
     font-size: 24px;
     height: 100px;
