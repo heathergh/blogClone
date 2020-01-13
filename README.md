@@ -4,11 +4,11 @@ A responsive SPA blog clone made with ReactJS, JSON Placeholder API, Styled Comp
 
 ## Getting Started
 
-- [ ]  Make sure you have NPM installed and NodeJS v12 or above.
-- [ ]  Clone this repo.
-- [ ]  Move to the appropriate directory: `cd blog-clone`.
-- [ ]  Run `npm install` to install dependencies. 
-- [ ]  Run `npm start ` to see the app at `http://localhost:3000`.
+- Make sure you have NPM installed and NodeJS v12 or above.
+- Clone this repo.
+- Move to the appropriate directory: `cd blog-clone`.
+- Run `npm install` to install dependencies.
+- Run `npm start ` to see the app at `http://localhost:3000`.
 
 ### Prerequisites
 
