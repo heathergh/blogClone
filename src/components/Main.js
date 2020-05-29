@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import SearchBar from './SearchBar';
 import PostContainer from './PostContainer';
 import ParagraphText from './ParagraphText';
 
@@ -20,9 +19,8 @@ const Main = () => {
         <>
             <Reset />
             <StyledMain>
-                <SearchBar />
                 <PostContainer propState={doPostsExist} setPropState={setDoPostsExist} />
-                {/* if blog articles exist, show more post text */}
+                {/* if blog articles exist, show 'more posts' text */}
                 { doPostsExist ? <ParagraphText>More Posts</ParagraphText> : null }
             </StyledMain>
         </>
