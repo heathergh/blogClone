@@ -7,28 +7,27 @@ const StyledHeader = styled.header`
 `
 const StyledHeadingOne = styled.h1`
     color: #272c2f;
-    font-family: FuturaBT-Heavy,sans-serif;
+    font-family: 'FuturaBT-Heavy', sans-serif;
     font-size: 45px;
     font-weight: 100;
     line-height: 1.1;    
 `
 
 const StyledHeadingTwo = styled.h2`
-    font-family: FuturaBT-Heavy,sans-serif;
+    font-family: 'FuturaBT-Heavy', sans-serif;
     font-size: 30px;
     font-weight: 100;
     letter-spacing: 2px;
     line-height: 45px;
     opacity: .5;
-    text-transform: uppercase;
     margin: 15px 0 0;
 `
 
 const Header = () => {
     return (
         <StyledHeader>
-            <StyledHeadingOne>Blog Clone</StyledHeadingOne>
-            <StyledHeadingTwo>Stories from JSON Placeholder</StyledHeadingTwo>
+            <StyledHeadingOne>DevTO Blog Clone</StyledHeadingOne>
+            <StyledHeadingTwo>Stories from the DevTO Community</StyledHeadingTwo>
         </StyledHeader>
     );
 }
