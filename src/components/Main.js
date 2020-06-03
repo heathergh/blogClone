@@ -15,12 +15,13 @@ const StyledMain = styled.main`
 const Main = () => {    
     const [doPostsExist, setDoPostsExist] = useState(false);
 
+
     return (
         <>
             <Reset />
             <StyledMain>
                 <PostContainer propState={doPostsExist} setPropState={setDoPostsExist} />
-                {/* if blog articles exist, show 'more posts' text */}
+                {/* if posts exist, show 'more posts' text */}
                 { doPostsExist ? <ParagraphText>More Posts</ParagraphText> : null }
             </StyledMain>
         </>
