@@ -5,29 +5,21 @@ import debounce from 'lodash/debounce';
 import ErrorMessage from './ErrorMessage';
 
 const StyledUnorderedList = styled.ul`
-    height: auto;
+    display: grid;
+    grid-auto-rows: 300px; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 75px;
     list-style: none;
-    position: relative;
     margin: 40px auto 0;
     width: 100%;
-    &::after {
-        clear: both;
-        content: "";
-        display: table;
-    }
 `
 
 const StyledListItem = styled.li`
     background: #f2efeb;
-    float: left;
+    height: max-content;
     margin: 0 0 20px 0;
-    position: relative;
-    @media (max-width: 625px) {
-        width: 100%;
-    }
     @media (min-width: 626px) {
         margin: 20px;
-        width: calc(50% - 40px);
     }
 `
 
@@ -53,6 +45,18 @@ const StyledHeading = styled.h3`
     letter-spacing: -.03em;
     line-height: 32px;
     margin: 10px 0 20px;
+    overflow: hidden;
+    position: relative;
+    
+    &::before {
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+        bottom: 0;
+        content: "";
+        height: 32px;
+        position: absolute;
+        right: 0;
+        width: 50%;
+    }    
 `
 
 const PostContainer = ({propState, setPropState}) => {
