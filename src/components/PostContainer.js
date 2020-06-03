@@ -118,12 +118,14 @@ const PostContainer = ({propState, setPropState}) => {
                     {
                         data.map(post => {
                             return (
-                                <StyledListItem key={post.id}>
-                                    <StyledImage src={post.cover_image || post.social_image} alt="" />
-                                    <StyledPostContainer>
-                                        <StyledHeading>{post.title}</StyledHeading>
-                                    </StyledPostContainer>
-                                </StyledListItem>
+                                <a key={post.id} href={post.canonical_url}>
+                                    <StyledListItem>
+                                        <StyledImage src={post.cover_image || post.social_image} alt="" />
+                                        <StyledPostContainer>
+                                            <StyledHeading>{post.title}</StyledHeading>
+                                        </StyledPostContainer>
+                                    </StyledListItem>
+                                </a>
                             )
                         })
                     }
