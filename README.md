@@ -1,6 +1,6 @@
 # Blog Clone
 
-A responsive SPA blog clone made with ReactJS, JSON Placeholder API, Styled Components and axios. Loads mock articles when bottom of page is reached, and user can also search for photos by id, which will display the image.
+A responsive SPA blog clone with infinite scrolling made with React, DevTO API, Styled Components and Axios.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ A responsive SPA blog clone made with ReactJS, JSON Placeholder API, Styled Comp
 
 ## Built With
 
-* [JSON Placeholder](https://jsonplaceholder.typicode.com/) - REST API for placeholder images and text
-* [ReactJS](https://reactjs.org/) - The UI library used
+* [Dev](https://docs.dev.to/api/) - REST API for Dev community site
+* [ReactJS](https://reactjs.org/) - The UI library
 * [NPM](https://www.npmjs.com/) - Package Management
-* [Styled Components](https://www.styled-components.com/) - Used to style UI interface
+* [Styled Components](https://www.styled-components.com/) - Used to style UI
