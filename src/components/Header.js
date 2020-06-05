@@ -26,8 +26,8 @@ const StyledHeadingTwo = styled.h2`
 const Header = () => {
     return (
         <StyledHeader>
-            <StyledHeadingOne>DevTO Blog Clone</StyledHeadingOne>
-            <StyledHeadingTwo>Stories from the DevTO Community</StyledHeadingTwo>
+            <StyledHeadingOne>DEV Community Blog Clone</StyledHeadingOne>
+            <StyledHeadingTwo>Stories from the DEV Community</StyledHeadingTwo>
         </StyledHeader>
     );
 }
